@@ -1,0 +1,203 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Adwaita Sans';
+    src: url('https://cdn.jsdelivr.net/gh/hfsworks/fonts@master/AdwaitaSans-Bold.woff2') format('woff2'),
+         local('Adwaita Sans Bold'), 
+         local('AdwaitaSans-Bold');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+body {
+    font-family: 'Adwaita Sans', 'Segoe UI', Georgia, sans-serif;
+    background: linear-gradient(135deg, #800020 0%, #600018 50%, #400010 100%);
+    color: #ffffff;
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.background-flowers {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.bg-flower {
+    position: absolute;
+    opacity: 0.12;
+    filter: grayscale(40%) brightness(1.2) contrast(0.9) drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+    animation: float-bg 15s ease-in-out infinite;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+@keyframes float-bg {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+}
+
+.container {
+    text-align: center;
+    max-width: 900px;
+    width: 90%;
+    padding: 40px;
+    z-index: 10;
+}
+
+header h1 {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6), 2px 2px 4px rgba(0, 0, 0, 0.4);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    opacity: 0.9;
+    margin-bottom: 40px;
+    font-weight: normal;
+    text-transform: uppercase;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 30px;
+    flex: 1;
+    min-width: 280px;
+    max-width: 400px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #ffffff;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+}
+
+.card p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    font-weight: normal;
+}
+
+.skills {
+    list-style: none;
+    text-align: left;
+}
+
+.skills li {
+    padding: 8px 0;
+    font-size: 1.1rem;
+    font-weight: normal;
+    position: relative;
+    padding-left: 15px;
+}
+
+.github-btn {
+    display: inline-block;
+    background: #ffffff;
+    color: #800020;
+    padding: 18px 40px;
+    font-size: 1.3rem;
+    text-decoration: none;
+    border-radius: 50px;
+    font-family: 'Adwaita Sans', 'Segoe UI', Georgia, sans-serif;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    border: 3px solid transparent;
+    text-transform: uppercase;
+}
+
+.github-btn:hover {
+    background: transparent;
+    color: #ffffff;
+    border-color: #ffffff;
+    transform: scale(1.05);
+    box-shadow: 0 8px 30px rgba(255, 255, 255, 0.2);
+}
+
+.fade-in {
+    animation: fadeIn 1s ease-out;
+}
+
+.fade-in-delay {
+    animation: fadeIn 1s ease-out 0.3s both;
+}
+
+.fade-in-delay-2 {
+    animation: fadeIn 1s ease-out 0.6s both;
+}
+
+.fade-in-delay-3 {
+    animation: fadeIn 1s ease-out 0.9s both;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.5rem;
+    }
+    
+    .subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .content {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .card {
+        width: 100%;
+    }
+    
+    .bg-flower {
+        width: 50px !important;
+    }
+}
